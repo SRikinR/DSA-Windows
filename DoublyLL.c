@@ -7,6 +7,8 @@ struct node{
     struct node *next;    
 };
 
+
+
 void transverse(struct node *ptr){
     printf("Elements are:\n");
     while(ptr->next!=NULL){
@@ -17,10 +19,12 @@ void transverse(struct node *ptr){
 }
 
 void reverse(struct node *ptr){
-    do{
-        printf("%d\n",ptr->data);
+   while(ptr->prev!=NULL){
+	   	printf("%d\n",ptr->data);
         ptr=ptr->prev;
-    }while(ptr->prev!=NULL);
+   }
+   printf("%d\n",ptr->data); 
+   //ptr=ptr->prev;
 }
 
 void transverseResevse(struct node *ptr){
@@ -62,13 +66,13 @@ int main(){
     fourth->data=4;
     fourth->next=NULL;
 
-    printf("Transverse:");
+    printf("\nTransverse:");
     transverse(head);
 
-    printf("Reverse Tranverse:\n");
+    printf("\nReverse Tranverse:\n");
     reverse(fourth);
 
-    printf("Two in One\n");    
+    printf("\nTwo in One\n");    
     transverseResevse(head);
 
     return 0;
